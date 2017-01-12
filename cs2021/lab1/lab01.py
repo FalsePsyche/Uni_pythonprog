@@ -1,8 +1,12 @@
+import doctest
+
 """Required questions for lab 1"""
 
 ## Boolean Operators ##
 
 # Q4
+
+
 def both_positive(x, y):
     """Returns True if both x and y are positive.
 
@@ -32,13 +36,22 @@ def factors(n):
     4
     2
     1
+    >>> factors(30)
+    30
+    15
+    10
+    6
+    5
+    3
+    2
+    1
     """
     "*** YOUR CODE HERE ***"
-    # todo: fix this, only prints one item?
-    for divisor in range(1, n):
-        quotient = n % divisor
-        if quotient == 0:
-            return divisor
+    for divisor in range(n, 0, -1):  # start loop at n then iterate using -1 until 0
+        remainder = n % divisor  # get remainder of division of n and loop step
+        if remainder == 0:  # check if remainder is 0 to make sure the divisor 'evenly' divides into the argument
+            print(divisor)
+
 
 # Q8
 def fib(n):
@@ -62,7 +75,22 @@ def fib(n):
     354224848179261915075
     """
     "*** YOUR CODE HERE ***"
-    if n is 0 or 1:
-        return n
-    else:
-        return fib(n + 1) + fib(n + 2)
+    a = 0
+    b = 1
+    # a, b = 0, 1
+    for i in range(n):
+        # a, b = b, a + b  # note: everything on the right side of the assignment is
+        #  evaluated before the assignment happens so this single line is the same as the
+        # next 3 lines:
+        temp = a
+        a = b
+        b = temp + b
+    return a
+
+
+def _test():
+    doctest.testmod()
+
+if __name__ == "__main__":
+    doctest.testmod()
+    _test()
