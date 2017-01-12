@@ -1,0 +1,11 @@
+{
+    "python.unitTest.unittestArgs": [
+        "-v",
+        "-s",
+        ".\\cs2021",
+        "-p",
+        "*_test.py"
+    ]
+,
+"python.unitTest.unittestEnabled": true
+}
