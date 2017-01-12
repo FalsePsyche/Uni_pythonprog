@@ -12,7 +12,11 @@ def both_positive(x, y):
     True
     """
     "*** YOUR CODE HERE ***"
-    return x and y > 0
+    if x > 0 and y > 0:
+        return True
+    else:
+        return False
+    # return x and y > 0  # note: why does this fail the doctest?
 
 
 ## while Loops ##
@@ -30,7 +34,11 @@ def factors(n):
     1
     """
     "*** YOUR CODE HERE ***"
-
+    # todo: fix this, only prints one item?
+    for divisor in range(1, n):
+        quotient = n % divisor
+        if quotient == 0:
+            return divisor
 
 # Q8
 def fib(n):
@@ -54,3 +62,7 @@ def fib(n):
     354224848179261915075
     """
     "*** YOUR CODE HERE ***"
+    if n is 0 or 1:
+        return n
+    else:
+        return fib(n + 1) + fib(n + 2)

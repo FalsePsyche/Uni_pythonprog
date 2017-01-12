@@ -6,5 +6,7 @@ def twenty_seventeen():
     2017
     >>> twenty_seventeen() + twenty_seventeen()
     4034
+    >>> twenty_seventeen() * 3
+    6051
     """
     return (1 + 2) * 2 * 2 * 2 * 2 * 2 * 3 * (3 + 4) + 1
