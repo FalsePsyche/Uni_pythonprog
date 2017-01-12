@@ -8,5 +8,7 @@ def twenty_seventeen():
     4034
     >>> twenty_seventeen() * 3
     6051
+    >>> twenty_seventeen() / 2
+    1008.5
     """
-    return (1 + 2) * 2 * 2 * 2 * 2 * 2 * 3 * (3 + 4) + 1
+    return (9 * 9) + ((22 * 2) * 44)
