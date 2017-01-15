@@ -1,3 +1,7 @@
+# Tanner Bornemann
+# Lab01 - Python Programming - Section 001
+# 2017-01-15
+
 import doctest
 
 """Required questions for lab 1"""
@@ -14,13 +18,14 @@ def both_positive(x, y):
     False
     >>> both_positive(1, 1)
     True
+    >>> both_positive(-1, -1)
+    False
     """
     "*** YOUR CODE HERE ***"
     if x > 0 and y > 0:
         return True
     else:
         return False
-    # return x and y > 0  # note: why does this fail the doctest?
 
 
 ## while Loops ##
@@ -79,8 +84,9 @@ def fib(n):
     b = 1
     # a, b = 0, 1
     for i in range(n):
-        # a, b = b, a + b  # note: everything on the right side of the assignment is
-        #  evaluated before the assignment happens so this single line is the same as the
+        # a, b = b, a + b
+        # # note: everything on the right side of the assignment is
+        #  evaluated before the assignment happens so the single line above is the same as the
         # next 3 lines:
         temp = a
         a = b

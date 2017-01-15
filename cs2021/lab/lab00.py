@@ -1,3 +1,7 @@
+# Tanner Bornemann
+# Lab00 - Python Programming - Section 001
+# 2017-01-13
+
 def twenty_seventeen():
     """Come up with the most creative expression that evaluates to 2017,
     using only numbers and the +, *, and - operators.
