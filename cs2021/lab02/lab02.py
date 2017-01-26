@@ -55,28 +55,36 @@ def dispatch_function(option1, f1, option2, f2):
         if option == option2:
             return f2(value)
     return func
-    
 
-### Q6
-##def make_buzzer(n):
-##    """ Returns a function that prints numbers in a specified
-##    range except those divisible by n.
-##
-##    >>> i_hate_fives = make_buzzer(5)
-##    >>> i_hate_fives(10)
-##    Buzz!
-##    1
-##    2
-##    3
-##    4
-##    Buzz!
-##    6
-##    7
-##    8
-##    9
-##    """
-##    "*** YOUR CODE HERE ***"
-##
+# Q6
+def make_buzzer(n):
+   """ Returns a function that prints numbers in a specified
+   range except those divisible by n.
+
+   >>> i_hate_fives = make_buzzer(5)
+   >>> i_hate_fives(10)
+   Buzz!
+   1
+   2
+   3
+   4
+   Buzz!
+   6
+   7
+   8
+   9
+   """
+   "*** YOUR CODE HERE ***"
+   def func(range):
+       index = 0
+       while index < range:
+           if index == 0 or index % n == 0:
+               print("Buzz!")
+           else:
+               print(str(index))
+           index += 1
+   return func
+
 ###  Q7
 ##from operator import add, sub
 ##
