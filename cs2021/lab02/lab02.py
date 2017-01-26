@@ -129,6 +129,11 @@ def largest_factor(n):
    40
    """
    "*** YOUR CODE HERE ***"
+   index = n - 1
+   while index > 0:
+       if n % index == 0:
+           return index
+       index -= 1
 
 ##
 ##         
