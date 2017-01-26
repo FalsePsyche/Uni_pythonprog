@@ -85,33 +85,37 @@ def make_buzzer(n):
            index += 1
    return func
 
-###  Q7
-##from operator import add, sub
-##
-##def a_plus_abs_b(a, b):
-##    """Return a+abs(b), but without calling abs.
-##
-##    >>> a_plus_abs_b(2, 3)
-##    5
-##    >>> a_plus_abs_b(2, -3)
-##    5
-##    """
-#
-##
-###  Q8
-##def two_of_three(a, b, c):
-##    """Return x*x + y*y, where x and y are the two largest members of the
-##    positive numbers a, b, and c.
-##
-##    >>> two_of_three(1, 2, 3)
-##    13
-##    >>> two_of_three(5, 3, 1)
-##    34
-##    >>> two_of_three(10, 2, 8)
-##    164
-##    >>> two_of_three(5, 5, 5)
-##    50
-##    """
+#  Q7
+from operator import add, sub
+
+def a_plus_abs_b(a, b):
+   """Return a+abs(b), but without calling abs.
+
+   >>> a_plus_abs_b(2, 3)
+   5
+   >>> a_plus_abs_b(2, -3)
+   5
+   """
+   if b < 0:
+       f = sub
+   else:
+       f = add
+   return f(a, b)
+
+#  Q8
+def two_of_three(a, b, c):
+   """Return x*x + y*y, where x and y are the two largest members of the
+   positive numbers a, b, and c.
+
+   >>> two_of_three(1, 2, 3)
+   13
+   >>> two_of_three(5, 3, 1)
+   34
+   >>> two_of_three(10, 2, 8)
+   164
+   >>> two_of_three(5, 5, 5)
+   50
+   """
 
 ##
 ###  Q9
