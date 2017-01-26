@@ -116,18 +116,19 @@ def two_of_three(a, b, c):
    >>> two_of_three(5, 5, 5)
    50
    """
+   return min(max(a**2, b**2), max(b**2, c**2), max(a**2, c**2)) + max(a**2, b**2, c**2)
+   
 
-##
-###  Q9
-##def largest_factor(n):
-##    """Return the largest factor of n that is smaller than n.
-##
-##    >>> largest_factor(15) # factors are 1, 3, 5
-##    5
-##    >>> largest_factor(80) # factors are 1, 2, 4, 5, 8, 10, 16, 20, 40
-##    40
-##    """
-##    "*** YOUR CODE HERE ***"
+#  Q9
+def largest_factor(n):
+   """Return the largest factor of n that is smaller than n.
+
+   >>> largest_factor(15) # factors are 1, 3, 5
+   5
+   >>> largest_factor(80) # factors are 1, 2, 4, 5, 8, 10, 16, 20, 40
+   40
+   """
+   "*** YOUR CODE HERE ***"
 
 ##
 ##         
