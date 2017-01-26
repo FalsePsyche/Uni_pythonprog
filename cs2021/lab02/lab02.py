@@ -78,25 +78,25 @@ def make_buzzer(n):
    def func(range):
        index = 0
        while index < range:
-           if index == 0 or index % n == 0:
+           if index % n == 0:
                print("Buzz!")
            else:
                print(str(index))
            index += 1
    return func
 
-###  Q7
-##from operator import add, sub
-##
-##def a_plus_abs_b(a, b):
-##    """Return a+abs(b), but without calling abs.
-##
-##    >>> a_plus_abs_b(2, 3)
-##    5
-##    >>> a_plus_abs_b(2, -3)
-##    5
-##    """
+##  Q7
+#from operator import add, sub
 #
+#def a_plus_abs_b(a, b):
+#    """Return a+abs(b), but without calling abs.
+#
+#    >>> a_plus_abs_b(2, 3)
+#    5
+#    >>> a_plus_abs_b(2, -3)
+#    5
+#    """
+
 ##
 ###  Q8
 ##def two_of_three(a, b, c):
