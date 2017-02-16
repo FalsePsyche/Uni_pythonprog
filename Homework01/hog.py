@@ -1,3 +1,7 @@
+# Tanner Bornemann
+# Homework01 - Python Programming - Section 001
+# 2017-02-12
+
 """The Game of Hog."""
 
 from dice import four_sided, six_sided, make_test_dice
