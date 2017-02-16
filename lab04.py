@@ -37,7 +37,11 @@ def map(fn, seq):
     >>> map(lambda x: x*x, [1, 2, 3])
     [1, 4, 9]
     """
-    "*** YOUR CODE HERE ***"
+    lst = []
+    for item in seq:
+        new_item = fn(item)
+        lst.append(new_item)
+    return lst
 
 def filter(pred, seq):
     """Keeps elements in seq only if they satisfy pred.
@@ -46,6 +50,11 @@ def filter(pred, seq):
     [2, 4]
     """
     "*** YOUR CODE HERE ***"
+    lst = []
+    for item in seq:
+        if pred(item):
+            lst.append(item)
+    return lst
 
 def reduce(combiner, seq):
     """Combines elements in seq using combiner.
@@ -57,7 +66,10 @@ def reduce(combiner, seq):
     >>> reduce(lambda x, y: x * y, [4])
     4
     """
-    "*** YOUR CODE HERE ***"
+    result = seq[0]
+    for item in seq[1:]:
+        result = combiner(result, item)
+    return result
 
 
 ################
