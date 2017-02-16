@@ -25,7 +25,9 @@ def reverse_recursive(lst):
     >>> reverse_recursive([1, 2, 3, 4])
     [4, 3, 2, 1]
     """
-    "*** YOUR CODE HERE ***"
+    if not lst:
+        return []
+    return reverse_recursive(lst[1:]) + [lst[0]]    
 
 
 # Q7
