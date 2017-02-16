@@ -1,3 +1,7 @@
+# Tanner Bornemann
+# Lab04 - Python Programming - Section 001
+# 2017-02-16
+
 ## Lists, Dictionaries ##
 
 #########
@@ -96,8 +100,9 @@ def build_successors_table(tokens):
     prev = '.'
     for word in tokens:
         if prev not in table:
-            "*** YOUR CODE HERE ***"
-        "*** YOUR CODE HERE ***"
+            table[str(prev)] = [str(word)]
+        else: # if already in table then add this word to the list of successors
+            table[str(prev)] += [str(word)]
         prev = word
     return table
 
@@ -107,9 +112,12 @@ def construct_tweet(word, table):
     table.
     """
     import random
-    result = ' '
+    result = " "
     while word not in ['.', '!', '?']:
-        "*** YOUR CODE HERE ***"
+        # temp = word
+        # tempSuccessors = table[word]
+        result += " {0}".format(word)
+        word = random.choice(table[word])
     return result + word
 
 # Warning: do NOT try to print the return result of this function
