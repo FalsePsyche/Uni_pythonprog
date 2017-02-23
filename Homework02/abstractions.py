@@ -71,6 +71,7 @@ def make_restaurant(name, location, categories, price, reviews):
         'location': location,
         'categories': categories,
         'price': price,
+        'reviews': reviews,
     }
 
 def restaurant_name(restaurant):
@@ -92,22 +93,40 @@ def restaurant_price(restaurant):
 
 def restaurant_ratings(restaurant):
     """Return a list of ratings, which are numbers from 1 to 5, of the
-    restaurant based on the reviews of the restaurant."""
+    restaurant based on the reviews of the restaurant.
+    
+    >>> soda_reviews = [make_review('Soda', 4.5), make_review('Soda', 4)]
+    >>> soda = make_restaurant('Soda', [127.0, 0.1], ['Restaurants', 'Breakfast & Brunch'], 1, soda_reviews)
+    >>> restaurant_ratings(soda)
+    [4.5, 4]
+"""
     # BEGIN Question 1
-    "*** REPLACE THIS LINE ***"
+    return [item[1] for item in restaurant['reviews']]
     # END Question 1
 
 
 ### === +++ RESTAURANT ABSTRACTION BARRIER +++ === ###
 
 def restaurant_num_ratings(restaurant):
-    """Return the number of ratings for restaurant."""
+    """Return the number of ratings for restaurant.
+    >>> woz_reviews = [make_review('Wozniak Lounge', 4), make_review('Wozniak Lounge', 3),
+    ...                make_review('Wozniak Lounge', 5)]
+    >>> woz = make_restaurant('Wozniak Lounge', [127.0, 0.1], ['Restaurants', 'Pizza'], 1, woz_reviews)
+    >>> restaurant_num_ratings(woz)
+    3
+    """
     # BEGIN Question 2
-    "*** REPLACE THIS LINE ***"
+    return len(restaurant['reviews'])
     # END Question 2
 
 def restaurant_mean_rating(restaurant):
-    """Return the average rating for restaurant."""
+    """Return the average rating for restaurant.
+    >>> woz_reviews = [make_review('Wozniak Lounge', 4), make_review('Wozniak Lounge', 3),
+    ...                make_review('Wozniak Lounge', 5)]
+    >>> woz = make_restaurant('Wozniak Lounge', [127.0, 0.1], ['Restaurants', 'Pizza'], 1, woz_reviews)
+    >>> restaurant_mean_rating(woz) # decimal value
+    4.0
+    """
     # BEGIN Question 2
-    "*** REPLACE THIS LINE ***"
+    return mean(restaurant_ratings(restaurant))
     # END Question 2
