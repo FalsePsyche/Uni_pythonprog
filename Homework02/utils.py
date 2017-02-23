@@ -29,8 +29,7 @@ def key_of_min_value(d):
     'c'
     """
     # BEGIN Question 0
-    "*** REPLACE THIS LINE ***"
-    return min('REPLACE THIS WITH YOUR SOLUTION')
+    return min(d, key=lambda x:d[x])  # get value at key 'position' in d
     # END Question 0
 
 def zip(*sequences):
