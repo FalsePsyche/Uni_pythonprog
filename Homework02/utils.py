@@ -16,8 +16,7 @@ def map_and_filter(s, map_fn, filter_fn):
     [1, 9, 25]
     """
     # BEGIN Question 0
-    "*** REPLACE THIS LINE ***"
-    return ['REPLACE THIS WITH YOUR LIST COMPREHENSION']
+    return [map_fn(item) for item in s if filter_fn(item)]
     # END Question 0
 
 def key_of_min_value(d):
