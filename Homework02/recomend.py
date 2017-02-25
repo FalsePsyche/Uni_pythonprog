@@ -57,9 +57,7 @@ def group_by_centroid(restaurants, centroids):
     >>> [list(map(lambda r: r['name'], c)) for c in groups]
     [['A', 'B'], ['C', 'D', 'E']]
     """
-
     # BEGIN Question 4
-    return_dict = {}  # should be the same length as the centroids list
     return_list = []  # will contain lists with the centroid as the first value and then the restaurant. the centroid will be the closest of that restaurant
     for rest in restaurants:
         closest = find_closest(rest['location'], centroids)  # find the closest centroid for each restaurant
@@ -70,9 +68,27 @@ def group_by_centroid(restaurants, centroids):
 
 
 def find_centroid(cluster):
-    """Return the centroid of the locations of the restaurants in cluster."""
+    """Return the centroid of the locations of the restaurants in cluster.
+    >>> cluster1 = [
+    ...     make_restaurant('A', [-3, -4], [], 3, [make_review('A', 2)]),
+    ...     make_restaurant('B', [1, -1],  [], 1, [make_review('B', 1)]),
+    ...     make_restaurant('C', [2, -4],  [], 1, [make_review('C', 5)]),
+    ... ]
+    >>> find_centroid(cluster1) # should be a pair of decimals
+    [0.0, -3.0]
+    """
     # BEGIN Question 5
-    "*** REPLACE THIS LINE ***"
+    position_list = []
+    for rest in cluster:  # get list of positions of restaurants, will compact this later
+        position_list.append(rest['location'])
+    x_list = []
+    y_list = []
+    for item in position_list:
+        x_list.append(item[0])
+        y_list.append(item[1])
+    x = mean(x_list)
+    y = mean(y_list)
+    return [x, y]
     # END Question 5
 
 
