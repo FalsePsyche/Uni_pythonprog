@@ -26,7 +26,7 @@ def find_closest(location, centroids):
 def group_by_first(pairs):
     """Return a list of pairs that relates each unique key in the [key, value]
     pairs to a list of all values that appear paired with that key.
-
+    this documentation should state why this should normally be used; what should this func normally be used for?
     Arguments:
     pairs -- a sequence of pairs
 
@@ -46,9 +46,26 @@ def group_by_centroid(restaurants, centroids):
     nearest to a corresponding centroid in centroids. Each item in
     restaurants should appear once in the result, along with the other
     restaurants closest to the same centroid.
+    >>> r1 = make_restaurant('A', [-10, 2], [], 2, [make_review('A', 4), ])
+    >>> r2 = make_restaurant('B', [-9, 1], [], 3, [make_review('B', 5), make_review('B', 3.5), ])
+    >>> r3 = make_restaurant('C', [4, 2], [], 1, [make_review('C', 5)])
+    >>> r4 = make_restaurant('D', [-2, 6], [], 4, [make_review('D', 2)])
+    >>> r5 = make_restaurant('E', [4, 2], [], 3.5, [make_review('E', 2.5), make_review('E', 3), ])
+    >>> c1 = [0, 0]
+    >>> c2 = [3, 4]
+    >>> groups = group_by_centroid([r1, r2, r3, r4, r5], [c1, c2])
+    >>> [list(map(lambda r: r['name'], c)) for c in groups]
+    [['A', 'B'], ['C', 'D', 'E']]
     """
+
     # BEGIN Question 4
-    "*** REPLACE THIS LINE ***"
+    return_dict = {}  # should be the same length as the centroids list
+    return_list = []  # will contain lists with the centroid as the first value and then the restaurant. the centroid will be the closest of that restaurant
+    for rest in restaurants:
+        closest = find_closest(rest['location'], centroids)  # find the closest centroid for each restaurant
+        return_list.append([closest, rest])  # append to list with closest centroid for group_by_first to organize
+    answer = group_by_first(return_list)
+    return answer
     # END Question 4
 
 
