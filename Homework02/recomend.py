@@ -2,7 +2,7 @@
 
 from abstractions import *
 #from data import ALL_RESTAURANTS, CATEGORIES, USER_FILES, load_user_file
-from utils import distance, mean, zip, enumerate, sample
+from utils import distance, mean, zip, enumerate, sample, key_of_min_value
 
 
 ##################################
@@ -18,7 +18,8 @@ def find_closest(location, centroids):
     [2.0, 3.0]
     """
     # BEGIN Question 3
-    "*** REPLACE THIS LINE ***"
+    closest = min(centroids, key=lambda x: distance(location, x))  # get smallest distance from location in x of centroids
+    return closest
     # END Question 3
 
 
