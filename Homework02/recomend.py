@@ -78,16 +78,9 @@ def find_centroid(cluster):
     [0.0, -3.0]
     """
     # BEGIN Question 5
-    position_list = []
-    for rest in cluster:  # get list of positions of restaurants, will compact this later
-        position_list.append(rest['location'])
-    x_list = []
-    y_list = []
-    for item in position_list:
-        x_list.append(item[0])
-        y_list.append(item[1])
-    x = mean(x_list)
-    y = mean(y_list)
+    positions = [rest['location'] for rest in cluster] # get list of positions of restaurants
+    x = mean([pos[0] for pos in positions])  # get the mean of the x positions
+    y = mean([pos[1] for pos in positions])  # get the mean of the y positions
     return [x, y]
     # END Question 5
 
