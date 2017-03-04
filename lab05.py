@@ -44,8 +44,10 @@ def sum_linked_list(lst, fn):
     >>> sum_linked_list(lst2, double)
     44
     """
-    "*** YOUR CODE HERE ***"
-
+    if lst is empty:
+        return 0
+    else:
+        return fn(first(lst)) + sum_linked_list(rest(lst), fn)  # call sum_linked_list with the rest of the linked list to recursively parse through the linked list's items
 
 #Q3
 
