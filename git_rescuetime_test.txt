@@ -1,2 +1,3 @@
 testing git commit post to rescuetime highlights
 test2
+test3
