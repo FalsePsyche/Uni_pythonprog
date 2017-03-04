@@ -2,3 +2,4 @@ testing git commit post to rescuetime highlights
 test2
 test3
 test4
+test5 on newbranch
