@@ -81,8 +81,21 @@ def insert(lst, item, index):
     >>> new = insert(lst, 9001, 1)
     >>> print_link(new)
     1 9001 2 3
+    >>> lst = link(1, link(2, link(3)))
+    >>> new = insert(lst, 9001, 3)
+    >>> print_link(new)
+    1 2 3 9001
+    >>> lst = link(1)
+    >>> new = insert(lst, 9001, 0)
+    >>> print_link(new)
+    9001 1
     """
-    "*** YOUR CODE HERE ***"
+    # call insert with one less on the index every time, if index is 0 or we are at the last item in the linked list;
+    # then return with a linked list with item as first and lst as rest
+    if index is 0 or lst is empty:
+        return link(item, lst)
+    else:
+        return link(first(lst), insert(rest(lst), item, index - 1))
 
 
 # Linked list ADT
