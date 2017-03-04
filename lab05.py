@@ -65,8 +65,10 @@ def map(fn, lst):
     squirtle
     None None None
     """
-    "*** YOUR CODE HERE ***"
-
+    if lst is not empty and is_link(lst):
+        return link(fn(first(lst)), map(fn, rest(lst)))  # return a linked list with the values parsed through fn and call map with the rest of the linked list to recursively parse through the linked list's items
+    else:
+        return empty
 
 #Q4
 
@@ -127,4 +129,3 @@ def print_link(s):
 
 if __name__ == "__main__":
     doctest.testmod()
-    _test()
