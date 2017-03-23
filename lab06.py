@@ -18,7 +18,11 @@ def make_pytunes(username):
           sandstorm
     """
     # create the two main trees with free songs
-    poptree = tree('pop', [tree('justin bieber', [tree('single', [tree('what do you mean?')])]), tree('2015 pop mashup')])
+    poptree = tree('pop',
+                   [tree('justin bieber',
+                         [tree('single',
+                               [tree('what do you mean?')])]),
+                    tree('2015 pop mashup')])
     trancetree = tree('trance', [tree('darude', [tree('sandstorm')])])
     t = tree(username, [poptree, trancetree])
     return t
@@ -55,7 +59,19 @@ def add_song(t, song, category):
           georgia
 
     """
-    "*** YOUR CODE HERE ***"
+    # need to dig down into the tree to find the matching category
+    for b in branches(t):
+        b_root = root(b)
+        if b_root == category:
+            new_leaves = branches(b) + [tree(song)]
+            new_branch = tree(b_root, new_leaves)
+            new_tree = tree(root(t), [new_branch])
+            return new_tree
+        else:
+            new_song = add_song(b, song, category)
+            t = tree(root(t), [new_song])
+    return t
+
 
 # Tree ADT
 def tree(root, branches=[]):
