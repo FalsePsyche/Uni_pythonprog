@@ -17,7 +17,11 @@ def make_pytunes(username):
         darude
           sandstorm
     """
-    "*** YOUR CODE HERE ***"
+    # create the two main trees with free songs
+    poptree = tree('pop', [tree('justin bieber', [tree('single', [tree('what do you mean?')])]), tree('2015 pop mashup')])
+    trancetree = tree('trance', [tree('darude', [tree('sandstorm')])])
+    t = tree(username, [poptree, trancetree])
+    return t
 
 def num_songs(t):
     """Return the number of songs in the pyTunes tree, t.
