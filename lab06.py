@@ -30,7 +30,13 @@ def num_songs(t):
     >>> num_songs(pytunes)
     3
     """
-    "*** YOUR CODE HERE ***"
+    if is_leaf(t):
+        return 1
+    else:
+        s = 0
+        for b in branches(t):
+            s+=num_songs(b)
+        return s
 
 def add_song(t, song, category):
     """Returns a new tree with SONG added to CATEGORY. Assume the CATEGORY
