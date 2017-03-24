@@ -193,16 +193,23 @@ def delete(t, target):
     tree_root = root(t)
     if is_leaf(t):
         return t
+    b_index = 0
+    branches_of_tree = branches(t)
+    b_index_to_delete = 0
+    new_branches_of_tree = []
     for b in branches(t):
         b_root = root(b)  # get root of b for comparison to target
         is_a_leaf = is_leaf(b)  # check to make sure this branch is not actually a leaf
         target_found = b_root == target
-        if is_a_leaf:  # if branch is a leaf then continue on with the next iteration of the for loop of brnaches
+        if target_found:  # if target found then we will not return with this branch, which will remove it from t?
             continue
-        elif target_found:  # if target found then we will not return with this branch, which will remove it from t?
+        elif is_a_leaf:  # if branch is a leaf then continue on with the next iteration of the for loop of branches
             continue
         else:
             tree_with_deleted_target = delete(b, target)
             t = tree(tree_root, [tree_with_deleted_target])
-    return t
+        b_index += 1
+        new_branches_of_tree.append(b)
+    tree_return = tree(root(t), new_branches_of_tree)
+    return tree_return
 
