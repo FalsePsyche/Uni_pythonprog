@@ -150,5 +150,37 @@ def delete(t, target):
       korean
         gangnam style
         wedding dress
+    >>> my_account = tree('kpop_king',
+    ...                     [tree('pop',
+    ...                           [tree('t-swift',
+    ...                                [tree('blank space')]),
+    ...                            tree('uptown funk'),
+    ...                            tree('see you again')]),
+    ...                     tree('korean',
+    ...                          [tree('gangnam style'),
+    ...                           tree('wedding dress')])])
+    >>> new = delete(my_account, 'pop')
+    >>> print_tree(new)
+    kpop_king
+      korean
+        gangnam style
+        wedding dress
     """
-    "*** YOUR CODE HERE ***"
+    # need to dig down into the tree to find the matching category
+    tree_root = root(t)
+    if is_leaf(t):
+        return t
+    for b in branches(t):
+        b_root = root(b)
+        is_a_leaf = is_leaf(b)
+        target_match = b_root == target
+        if is_a_leaf:
+            continue
+        elif target_match:
+            b = ['deleted']
+            continue
+        else:
+            tree_with_deleted_target = delete(b, target)
+            t = tree(tree_root, [tree_with_deleted_target])
+    return t
+
