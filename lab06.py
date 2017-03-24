@@ -165,19 +165,41 @@ def delete(t, target):
       korean
         gangnam style
         wedding dress
+    >>> my_account = tree('kpop_king',
+    ...                     [tree('pop',
+    ...                           [tree('t-swift',
+    ...                                [tree('blank space')]),
+    ...                            tree('uptown funk'),
+    ...                            tree('see you again')]),
+    ...                     tree('korean',
+    ...                          [tree('gangnam style'),
+    ...                           tree('wedding dress')]),
+    ...                     tree('korean2',
+    ...                          [tree('gangnam style2'),
+    ...                           tree('wedding dress2')])
+    ...                     ]
+    ...                   )
+    >>> new = delete(my_account, 'pop')
+    >>> print_tree(new)
+    kpop_king
+      korean
+        gangnam style
+        wedding dress
+      korean2
+        gangnam style2
+        wedding dress2
     """
     # need to dig down into the tree to find the matching category
     tree_root = root(t)
     if is_leaf(t):
         return t
     for b in branches(t):
-        b_root = root(b)
-        is_a_leaf = is_leaf(b)
-        target_match = b_root == target
-        if is_a_leaf:
+        b_root = root(b)  # get root of b for comparison to target
+        is_a_leaf = is_leaf(b)  # check to make sure this branch is not actually a leaf
+        target_found = b_root == target
+        if is_a_leaf:  # if branch is a leaf then continue on with the next iteration of the for loop of brnaches
             continue
-        elif target_match:
-            b = ['deleted']
+        elif target_found:  # if target found then we will not return with this branch, which will remove it from t?
             continue
         else:
             tree_with_deleted_target = delete(b, target)
